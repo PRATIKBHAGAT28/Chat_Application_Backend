@@ -1,29 +1,21 @@
 import { Schema, model } from "mongoose";
 const schema = new Schema(
   {
-    name: {
+    status: {
       type: String,
+      default: "pending",
+      enum: ["pending", "accepted", "rejected"],
+    },
+
+    sender: {
+      type: Types.ObjectId,
+      ref: "User",
       required: true,
     },
-    username: {
-      type: String,
+    receiver: {
+      type: Types.ObjectId,
+      ref: "User",
       required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-      select: false,
-    },
-    avatar: {
-      public_id: {
-        type: String,
-        required: true,
-      },
-      url: {
-        type: string,
-        required: true,
-      },
     },
   },
   {
@@ -32,4 +24,4 @@ const schema = new Schema(
 );
 
 //export
-export const User = models.User || model("User", schema);
+export const Request = models.Request || model("Request", schema);
