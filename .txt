@@ -1,0 +1,2 @@
+npm run dev --> we hav used nodemon in that so whenever we use command "npm run dev" code keep running and it shows all the changes. 
+npm start run  
