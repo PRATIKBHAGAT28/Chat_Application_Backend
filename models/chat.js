@@ -13,16 +13,12 @@ const schema = new Schema(
       type: Types.ObjectId,
       ref: "User",
     },
-    avatar: {
-      public_id: {
-        type: String,
-        required: true,
+    members: [
+      {
+        type: Types.ObjectId,
+        ref: User,
       },
-      url: {
-        type: string,
-        required: true,
-      },
-    },
+    ],
   },
   {
     timestamps: true,
@@ -30,4 +26,4 @@ const schema = new Schema(
 );
 
 //export
-export const User = models.User || model("User", schema);
+export const Chat = models.Chat || model("Chat", schema);
