@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, Types, model } from "mongoose";
 const schema = new Schema(
   {
     name: {
@@ -21,7 +21,7 @@ const schema = new Schema(
         required: true,
       },
       url: {
-        type: string,
+        type: String,
         required: true,
       },
     },
@@ -32,4 +32,4 @@ const schema = new Schema(
 );
 
 //export
-export const User = models.User || model("User", schema);
+export const User = mongoose.models || model("User", schema);
